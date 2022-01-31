@@ -1,63 +1,52 @@
-let pick = ["Pedra", "Papel", "Tesoura"];
-let playerScore = 0;
-let computerScore = 0;
+window.onload = function () {
+  document.getElementById("Pedra").onclick = playerPlay;
+  document.getElementById("Papel").onclick = playerPlay;
+  document.getElementById("Tesoura").onclick = playerPlay;
 
-function computerPlay() {
-  let computerSelection = pick[Math.floor(Math.random() * pick.length)];
-  return computerSelection;
-}
+  const pick = ["Pedra", "Papel", "Tesoura"];
+  let playerScore = 0;
+  let computerScore = 0;
 
-console.log(computerPlay());
-
-function playerPlay() {
-  let playerInput = prompt("Pedra, papel ou tesoura?");
-  let playerSelection =
-    playerInput.charAt(0).toUpperCase() + playerInput.slice(1).toLowerCase();
-  console.log(playerSelection);
-  return playerSelection;
-}
-
-function playRound(playerSelection, computerSelection) {
-  if (
-    (playerSelection == "Pedra" && computerSelection == "Tesoura") ||
-    (playerSelection == "Tesoura" && computerSelection == "Papel") ||
-    (playerSelection == "Papel" && computerSelection == "Pedra")
-  ) {
-    playerScore = ++playerScore;
-    console.log(
-      `Você venceu! ${playerSelection} ganha de ${computerSelection}!`
-    );
-  } else if (
-    (playerSelection == "Pedra" && computerSelection == "Pedra") ||
-    (playerSelection == "Papel" && computerSelection == "Papel") ||
-    (playerSelection == "Tesoura" && computerSelection == "Tesoura")
-  ) {
-    console.log(`Empate! ${playerSelection} empata com ${computerSelection}!`);
-  } else if (
-    playerSelection != "Pedra" ||
-    playerSelection != "Papel" ||
-    playerSelection != "Tesoura"
-  ) {
-    console.log("Opção não válida.");
-  } else {
-    computerScore = ++computerScore;
-    console.log(
-      `Você perdeu! ${playerSelection} perde de ${computerSelection}!`
-    );
+  function computerPlay() {
+    let computerSelection = pick[Math.floor(Math.random() * pick.length)];
+    return computerSelection;
   }
-}
 
-function runGame() {
-  while (playerScore < 5 && computerScore < 5) {
-    playRound(playerPlay(), computerPlay());
-    console.log(`${playerScore} x ${computerScore}`);
-    if (playerScore == 5) {
-      console.log("Você ganhou a partida!");
-    } else if (computerScore == 5) {
-      console.log("Você perdeu a partida!");
+  function playRound(playerChoice, computerSelection) {
+    if (playerScore < 5 && computerScore < 5) {
+      if (
+        (playerChoice == "Pedra" && computerSelection == "Tesoura") ||
+        (playerChoice == "Tesoura" && computerSelection == "Papel") ||
+        (playerChoice == "Papel" && computerSelection == "Pedra")
+      ) {
+        playerScore = ++playerScore;
+        console.log(
+          `Você venceu! ${playerChoice} ganha de ${computerSelection}!`
+        );
+      } else if (
+        (playerChoice == "Pedra" && computerSelection == "Pedra") ||
+        (playerChoice == "Papel" && computerSelection == "Papel") ||
+        (playerChoice == "Tesoura" && computerSelection == "Tesoura")
+      ) {
+        console.log(`Empate! ${playerChoice} empata com ${computerSelection}!`);
+      } else {
+        computerScore = ++computerScore;
+        console.log(
+          `Você perdeu! ${playerChoice} perde de ${computerSelection}!`
+        );
+      }
     } else {
     }
   }
-}
 
-runGame();
+  function playerPlay(clicked) {
+    playerChoice = this.id;
+    playRound(playerChoice, computerPlay());
+    console.log(`${playerScore} x ${computerScore}`);
+    if (playerScore === 5 || computerScore === 5) {
+      console.log("Você ganhou a partida!");
+      alert("Você ganhou a partida! Aperte OK para jogar novamente.");
+      window.location.reload();
+    }
+  }
+};
