@@ -15,18 +15,18 @@ window.onload = function () {
   function playRound(playerChoice, computerSelection) {
     if (playerScore < 5 && computerScore < 5) {
       if (
-        (playerChoice == "Pedra" && computerSelection == "Tesoura") ||
-        (playerChoice == "Tesoura" && computerSelection == "Papel") ||
-        (playerChoice == "Papel" && computerSelection == "Pedra")
+        (playerChoice === "Pedra" && computerSelection === "Tesoura") ||
+        (playerChoice === "Tesoura" && computerSelection === "Papel") ||
+        (playerChoice === "Papel" && computerSelection === "Pedra")
       ) {
         playerScore = ++playerScore;
         console.log(
           `Você venceu! ${playerChoice} ganha de ${computerSelection}!`
         );
       } else if (
-        (playerChoice == "Pedra" && computerSelection == "Pedra") ||
-        (playerChoice == "Papel" && computerSelection == "Papel") ||
-        (playerChoice == "Tesoura" && computerSelection == "Tesoura")
+        (playerChoice === "Pedra" && computerSelection === "Pedra") ||
+        (playerChoice === "Papel" && computerSelection === "Papel") ||
+        (playerChoice === "Tesoura" && computerSelection === "Tesoura")
       ) {
         console.log(`Empate! ${playerChoice} empata com ${computerSelection}!`);
       } else {
