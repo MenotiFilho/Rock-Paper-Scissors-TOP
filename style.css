@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5em;
+}
+
+button {
+  border-radius: 10em;
+  background-color: black;
+  border-color: lightgray;
+  color: lightgray;
+  font-size: 1.5em;
+  padding: 1.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.score-keep {
+  display: flex;
+  font-size: 3.5em;
+  gap: 0.4em;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-all {
+  display: flex;
+}
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cpu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#player-pick {
+  font-size: 0.5em;
+}
+#cpu-pick {
+  font-size: 0.5em;
+}
+#point-title {
+  font-size: 4em;
+  font-weight: bolder;
+  margin-bottom: 0.5em;
+}

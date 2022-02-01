@@ -6,10 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <button id="Pedra">Pedra</button>
-    <button id="Papel">Papel</button>
-    <button id="Tesoura">Tesoura</button>
+    <div class="title"><h1>Pedra, Papel ou Tesoura?</h1></div>
+    <div class="buttons-div">
+      <button id="Pedra">Pedra</button>
+      <button id="Papel">Papel</button>
+      <button id="Tesoura">Tesoura</button>
+    </div>
+
+    <div class="bottom">
+      <div id="point-title">Pontuação</div>
+      <div class="score-keep">
+        <div class="player">
+          <div id="player">Você</div>
+          <div id="player-pick">Escolha</div>
+        </div>
+        <div class="score-all">
+          <div id="player-score">0</div>
+          <div id="versus">X</div>
+          <div id="cpu-score">0</div>
+        </div>
+        <div class="cpu">
+          <div id="cpu">CPU</div>
+          <div id="cpu-pick">Escolha</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

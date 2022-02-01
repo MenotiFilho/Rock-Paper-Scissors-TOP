@@ -23,17 +23,29 @@ window.onload = function () {
         console.log(
           `Você venceu! ${playerChoice} ganha de ${computerSelection}!`
         );
+        document.getElementById(
+          "cpu-pick"
+        ).textContent = `${computerSelection}`;
+        document.getElementById("player-pick").textContent = `${playerChoice}`;
       } else if (
         (playerChoice === "Pedra" && computerSelection === "Pedra") ||
         (playerChoice === "Papel" && computerSelection === "Papel") ||
         (playerChoice === "Tesoura" && computerSelection === "Tesoura")
       ) {
         console.log(`Empate! ${playerChoice} empata com ${computerSelection}!`);
+        document.getElementById(
+          "cpu-pick"
+        ).textContent = `${computerSelection}`;
+        document.getElementById("player-pick").textContent = `${playerChoice}`;
       } else {
         computerScore = ++computerScore;
         console.log(
           `Você perdeu! ${playerChoice} perde de ${computerSelection}!`
         );
+        document.getElementById(
+          "cpu-pick"
+        ).textContent = `${computerSelection}`;
+        document.getElementById("player-pick").textContent = `${playerChoice}`;
       }
     } else {
     }
@@ -43,10 +55,22 @@ window.onload = function () {
     playerChoice = this.id;
     playRound(playerChoice, computerPlay());
     console.log(`${playerScore} x ${computerScore}`);
-    if (playerScore === 5 || computerScore === 5) {
+    document.getElementById("player-score").textContent = `${playerScore}`;
+    document.getElementById("cpu-score").textContent = `${computerScore}`;
+
+    if (playerScore < 5 && computerScore < 5) {
+      document.getElementById("player-score").textContent = `${playerScore}`;
+      document.getElementById("cpu-score").textContent = `${computerScore}`;
+    } else if (playerScore === 5) {
       console.log("Você ganhou a partida!");
-      alert("Você ganhou a partida! Aperte OK para jogar novamente.");
-      window.location.reload();
+      document.getElementById(
+        "point-title"
+      ).textContent = `Você ganhou a partida!`;
+    } else if (computerScore === 5) {
+      document.getElementById(
+        "point-title"
+      ).textContent = `Você perdeu a partida!`;
+    } else {
     }
   }
 };
